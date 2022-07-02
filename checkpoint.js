@@ -148,7 +148,18 @@ OrderedLinkedList.prototype.print = function(){
 // < 'head --> 5 --> 3 --> 1 --> null'
 //               4
 OrderedLinkedList.prototype.add = function(val){
-    
+    if (!this.head) this.head = new Node(val);
+    else {
+        let cur = this.head;
+
+        while (cur.next && cur.next.value > val) {
+            cur = cur.next;
+        }
+
+        let aux = cur.next;
+        cur.next = new Node(val);
+        cur.next.next = aux;
+    }
 }
 
 
