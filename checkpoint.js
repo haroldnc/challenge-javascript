@@ -276,7 +276,11 @@ function multiCallbacks(cbs1, cbs2){
 // resultado:[5,8,9,32,64]
 
 BinarySearchTree.prototype.toArray = function() {
-    
+    return [
+        ...(this.left?.toArray() ?? []),
+        this.value,
+        ...(this.right?.toArray() ?? [])
+    ];
 }
 
 
