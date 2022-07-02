@@ -88,7 +88,16 @@ function direcciones(laberinto) {
 // deepEqualArrays([0,1,[[0,1,2],1,2]], [0,1,[[0,1,2],1,2]]) => true
 
 function deepEqualArrays(arr1, arr2) {
+    if (!Array.isArray(arr1)) return arr1 === arr2;
+    if (arr1.length !== arr2.length) return false;
 
+    let isEqual = true;
+
+    for (let i=0; i<arr1.length; i++) {
+        isEqual = isEqual && deepEqualArrays(arr1[i], arr2[i]);
+    }
+
+    return isEqual;
 }
 
 
