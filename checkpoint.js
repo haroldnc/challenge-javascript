@@ -202,7 +202,25 @@ OrderedLinkedList.prototype.removeHigher = function(){
 // < null
 
 OrderedLinkedList.prototype.removeLower = function(){
+    let lower = null;
     
+    if (this.head) {
+        if (!this.head.next) {
+            const lower = this.head.value;
+            this.head = null;
+        } else {
+            let cur = this.head;
+
+            while(cur.next.next){
+                cur = cur.next;
+            }
+
+            lower = cur.next.value;
+            cur.next = null;
+        }
+    }
+
+    return lower;
 }
 
 
