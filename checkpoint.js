@@ -253,7 +253,11 @@ OrderedLinkedList.prototype.removeLower = function(){
 // < ["2-1", "1-1", "1-2", "2-2"];
 
 function multiCallbacks(cbs1, cbs2){
+    let cbs = [...cbs1, ...cbs2];
     
+    cbs = cbs.sort((a, b) => a.time - b.time);
+
+    return cbs.map(cb => cb.cb());
 }
 
 
