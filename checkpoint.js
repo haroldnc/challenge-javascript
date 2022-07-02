@@ -206,7 +206,7 @@ OrderedLinkedList.prototype.removeLower = function(){
     
     if (this.head) {
         if (!this.head.next) {
-            const lower = this.head.value;
+            lower = this.head.value;
             this.head = null;
         } else {
             let cur = this.head;
