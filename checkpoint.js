@@ -179,7 +179,10 @@ OrderedLinkedList.prototype.add = function(val){
 // < null
 
 OrderedLinkedList.prototype.removeHigher = function(){
-    
+    const higher = this.head;
+    this.head = this.head?.next;
+
+    return higher?.value ?? null;
 }
 
 
